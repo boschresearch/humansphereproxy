@@ -1,0 +1,7 @@
+- name: h2s_layer
+- channels:
+  - conda-forge
+  - pytorch
+- dependencies:
+  - python
+  - pip

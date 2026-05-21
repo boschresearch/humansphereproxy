@@ -1,0 +1,9 @@
+.vscode/
+dataset/
+body_models
+save/
+*/__pycache__
+__pycache__
+data/*txt
+*.egg-info
+build/

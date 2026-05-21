@@ -1,0 +1,7 @@
+.vscode/
+animation/
+body_models/*
+__pycache__/
+*.egg-info
+build/
+dist/

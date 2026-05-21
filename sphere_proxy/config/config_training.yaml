@@ -1,0 +1,76 @@
+## Copyright (c) 2025 Robert Bosch GmbH
+## SPDX-License-Identifier: AGPL-3.0
+
+data:
+  path: ./dataset/sdfs_smpl_unposed_detail/
+  subset: unposed # Choices: posed, unposed, both
+  num_samples: 16384 # 2^14
+  perc_sphere: 0.1
+  perc_detail: 0.5
+
+seed: 10
+      # Leave empty for random seed
+
+training:
+  sphere:
+    epochs: 2800
+    lr: 5e-4
+    batch_size: 64
+    num_workers: 16
+    lr_schedule:
+      initial: 5e-4
+      step: 700
+      factor: 0.5
+    lambda_emptiness: 10
+    lambda_intersect: 0.1
+    lambda_dist: 0
+    lambda_rad: 0
+  joint:
+    epochs: 300
+    lr: 1e-4
+    batch_size: 64
+    num_workers: 16
+    lr_schedule:
+      initial: 1e-4
+      step: 100
+      factor: 0.1  
+
+model:
+  latent_dim: 512
+  num_spheres: 192
+  smpl_shape_dim: 10
+  num_joints: 22
+  boneweights_nn: 8
+
+logging:
+  tb_logging: True
+  log_dir: ./save/SP-192
+
+
+mesh:
+  kin_tree: [-1, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 9, 12, 13, 14, 16, 17, 18, 19]
+
+joint_importance_weights: [1., # 0 pelvis
+                           1., # 1 left_hip
+                           1., # 2 right_hip
+                           1., # 3 spine1
+                           1., # 4 left_knee
+                           1., # 5 right_knee
+                           1., # 6 spine2
+                           1., # 7 left_ankle
+                           1., # 8 right_ankle
+                           1., # 9 spine3
+                           1., # 10 left_foot
+                           1., # 11 right_foot
+                           1., # 12 neck
+                           1., # 13 left_collar
+                           1., # 14 right_collar
+                           1., # 15 head
+                           1., # 16 left_shoulder
+                           1., # 17 right_shoulder
+                           1., # 18 left_elbow
+                           1., # 19 right_elbow
+                           1., # 20 left_wrist
+                           1.] # 21 right_wrist
+
+min_rad: 0.01 # 1cm
