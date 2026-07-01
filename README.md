@@ -2,7 +2,7 @@
 
 This is the companion code for the paper
 "Self-Intersection-Aware 3D Human Motion Generation Using an Efficient Human Sphere Proxy" by Pascal Herrmann et al.,
-published at BMVC 2025. The paper can be found here TODO ADD LINK TO ARXIV. The code allows the users to
+published at BMVC 2025. The paper can be found [here](https://arxiv.org/abs/2605.26744). The code allows the users to
 train a human sphere proxy and calculate the novel self-intersection loss reported in the paper.
 The results from the paper can be reproduced by integrating the self-intersection loss
 into the human motion generation methods [MDM](https://github.com/GuyTevet/motion-diffusion-model) and [MoMask](https://github.com/EricGuo5513/momask-codes).
